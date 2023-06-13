@@ -1,0 +1,1440 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="ASR-Crash">
+      
+      
+      
+        <link rel="prev" href="../Robotics/">
+      
+      
+        <link rel="next" href="../PowerMonitor/">
+      
+      <link rel="icon" href="../logo/UNHW-IC.png">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.15">
+    
+    
+      
+        <title>PowerConvert - UNHW通用硬件·机器人硬件解决方案</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.26e3688c.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#hwsd-powerconvert" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="UNHW通用硬件·机器人硬件解决方案" class="md-header__button md-logo" aria-label="UNHW通用硬件·机器人硬件解决方案" data-md-component="logo">
+      
+  <img src="../logo/UNHW-only.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            UNHW通用硬件·机器人硬件解决方案
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              PowerConvert
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="UNHW通用硬件·机器人硬件解决方案" class="md-nav__button md-logo" aria-label="UNHW通用硬件·机器人硬件解决方案" data-md-component="logo">
+      
+  <img src="../logo/UNHW-only.png" alt="logo">
+
+    </a>
+    UNHW通用硬件·机器人硬件解决方案
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+          Overview
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Overview
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Introduction/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../About-this-document/" class="md-nav__link">
+        About this document
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Navigation/" class="md-nav__link">
+        Navigation
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          ACTR Series
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          ACTR Series
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../H-bridge/" class="md-nav__link">
+        H-bridge
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../High-Side-Switch/" class="md-nav__link">
+        High-Side Switch
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          Adapter Series
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Adapter Series
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CAN-RECT/" class="md-nav__link">
+        CAN RECT
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GH2GH/" class="md-nav__link">
+        GH2GH
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../XT2XT/" class="md-nav__link">
+        XT2XT
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          Assistant Series
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Assistant Series
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../WiFi/" class="md-nav__link">
+        WiFi
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          DEV Series
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          DEV Series
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Develop-F405/" class="md-nav__link">
+        Develop-F405
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+          MAIN Series
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          MAIN Series
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Core/" class="md-nav__link">
+        Core
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Robotics/" class="md-nav__link">
+        Robotics
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+          PSM Series
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          PSM Series
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          PowerConvert
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        PowerConvert
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#hwsd-powerconvert" class="md-nav__link">
+    HWSD-PowerConvert 电源转换模块
+  </a>
+  
+    <nav class="md-nav" aria-label="HWSD-PowerConvert 电源转换模块">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    概念图
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    原理图
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    功能说明
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    测试记录
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    机械参数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    电阻配置
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ibom" class="md-nav__link">
+    ibom
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#datashet" class="md-nav__link">
+    Datashet
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PowerMonitor/" class="md-nav__link">
+        PowerMonitor
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PowerProtect/" class="md-nav__link">
+        PowerProtect
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+          SNSR Series
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          SNSR Series
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Gyroscope/" class="md-nav__link">
+        Gyroscope
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+          Terminal Series
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          Terminal Series
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../IPS/" class="md-nav__link">
+        IPS
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+          Toolkit Series
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_10">
+          <span class="md-nav__icon md-icon"></span>
+          Toolkit Series
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Bluetooth/" class="md-nav__link">
+        Bluetooth
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DAPLink/" class="md-nav__link">
+        DAPLink
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Detector/" class="md-nav__link">
+        Detector
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+          Support
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_11">
+          <span class="md-nav__icon md-icon"></span>
+          Support
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Software-Support/" class="md-nav__link">
+        Software Support
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Application-Case/" class="md-nav__link">
+        Application Case
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Infrastructure/" class="md-nav__link">
+        Infrastructure
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Model-Download/" class="md-nav__link">
+        Model Download
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#hwsd-powerconvert" class="md-nav__link">
+    HWSD-PowerConvert 电源转换模块
+  </a>
+  
+    <nav class="md-nav" aria-label="HWSD-PowerConvert 电源转换模块">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    概念图
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    原理图
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    功能说明
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    测试记录
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    机械参数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    电阻配置
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ibom" class="md-nav__link">
+    ibom
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#datashet" class="md-nav__link">
+    Datashet
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>PowerConvert</h1>
+
+<h2 id="hwsd-powerconvert">HWSD-PowerConvert 电源转换模块</h2>
+<h3 id="_1">概念图</h3>
+<table>
+    <tr>
+        <td><img src="HWSD-DCDC-60V3A.PNG"></td>
+        <td><img src="HWSD-Module-36V5A.PNG"></td>
+        <td><img src="HWSD-Silent-42V4A.PNG"></td>
+    </tr>
+<tr>
+    <td><center><strong>DCDC-60V3A</td>
+        <td><center><strong>Module-36V5A</td>
+        <td><center><strong>Silent-42V4A</td>  
+</tr>
+</table>
+
+<p><img alt="HWSD-DCDC-60V3A" src="HWSD-DCDC-60V3A.PNG" /></p>
+<p><img alt="HWSD-Module-36V5A" src="HWSD-Module-36V5A.PNG" /></p>
+<p><img alt="HWSD-Silent-42V4A" src="HWSD-Silent-42V4A.PNG" /></p>
+<h3 id="_2">原理图</h3>
+<p><a href="HWSD-DCDC-60V3A.pdf">HWSD-DCDC-60V3A.pdf</a> </p>
+<p><a href="HWSD-Module-36V5A.pdf">HWSD-Module-36V5A.pdf</a> </p>
+<p><a href="HWSD-Silent-42V4A.pdf">HWSD-Silent-42V4A.pdf</a> </p>
+<h3 id="_3">功能说明</h3>
+<pre><code>    DCDC-60V3A: 基于SIMPLE SWITCHER®架构LMR16030，最大输入电压60V，最大输出电流3A，配置稳压输出5V。
+
+    Module-36V5A：基于一体式电源模块MPM3550E，最大输入电压60V，最大输出电流3A，配置稳压输出5V/3.3V。
+
+    Silent-42V4A：基于Silent Switcher®2架构LT8653S，最大输入电压42V，双路电流输出，单路输出电流2A，配置输出5V/3.3V/1.8V。
+</code></pre>
+<h3 id="_4">测试记录</h3>
+<table>
+<thead>
+<tr>
+<th>测试模块</th>
+<th>测试条件</th>
+<th>现象分析</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Silent-42V4A</td>
+<td>FLT指示灯点亮</td>
+<td>EN拉低、VIN低压、VCC低压、Vout超限、超温等条件下，PG接地</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="_5">机械参数</h3>
+<table>
+<thead>
+<tr>
+<th>type</th>
+<th>60V3A</th>
+<th></th>
+<th>42V4A</th>
+<th></th>
+<th>36V5A</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>unit</td>
+<td>mm</td>
+<td>mil</td>
+<td>mm</td>
+<td>mil</td>
+<td>mm</td>
+<td>mil</td>
+</tr>
+<tr>
+<td>space length</td>
+<td>40.00</td>
+<td>1574.80</td>
+<td>40.00</td>
+<td>1574.80</td>
+<td>40.00</td>
+<td>1574.80</td>
+</tr>
+<tr>
+<td>board length</td>
+<td>40.00</td>
+<td>1574.80</td>
+<td>40.00</td>
+<td>1574.80</td>
+<td>40.00</td>
+<td>1574.80</td>
+</tr>
+<tr>
+<td>fixing length</td>
+<td>34.92</td>
+<td>1374.80</td>
+<td>34.92</td>
+<td>1374.80</td>
+<td>34.92</td>
+<td>1374.80</td>
+</tr>
+<tr>
+<td>space width</td>
+<td>20.00</td>
+<td>787.40</td>
+<td>20.00</td>
+<td>787.40</td>
+<td>20.00</td>
+<td>787.40</td>
+</tr>
+<tr>
+<td>board width</td>
+<td>20.00</td>
+<td>787.40</td>
+<td>20.00</td>
+<td>787.40</td>
+<td>20.00</td>
+<td>787.40</td>
+</tr>
+<tr>
+<td>fixing width</td>
+<td>14.92</td>
+<td>587.40</td>
+<td>14.92</td>
+<td>587.40</td>
+<td>14.92</td>
+<td>587.40</td>
+</tr>
+<tr>
+<td>space thick</td>
+<td>7.00</td>
+<td>275.59</td>
+<td>10.18</td>
+<td>400.79</td>
+<td>7.00</td>
+<td>275.59</td>
+</tr>
+<tr>
+<td>board thick</td>
+<td>1.60</td>
+<td>62.99</td>
+<td>1.60</td>
+<td>62.99</td>
+<td>1.60</td>
+<td>62.99</td>
+</tr>
+<tr>
+<td>fixing hole</td>
+<td>3.00</td>
+<td>118.11</td>
+<td>3.00</td>
+<td>118.11</td>
+<td>3.00</td>
+<td>118.11</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_6">电阻配置</h3>
+<table>
+<thead>
+<tr>
+<th>DCDC-60V3A：Vout (V)</th>
+<th>3.25</th>
+<th>5</th>
+<th>5.25</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>R2 (k)</td>
+<td>100</td>
+<td>100</td>
+<td>120</td>
+</tr>
+<tr>
+<td>R4 (k)</td>
+<td>30</td>
+<td>17.8</td>
+<td>20</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Module-36V5A：Vout (V)</th>
+<th>1</th>
+<th>1.5</th>
+<th>1.8</th>
+<th>2.5</th>
+<th>3.3</th>
+<th>5</th>
+<th>12</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>R3 (k)</td>
+<td>2.4</td>
+<td>11.5</td>
+<td>19.6</td>
+<td>63.4</td>
+<td>NC</td>
+<td>NC</td>
+<td>NC</td>
+</tr>
+<tr>
+<td>R4 (k)</td>
+<td>15.8</td>
+<td>26.1</td>
+<td>31.6</td>
+<td>47</td>
+<td>63.4</td>
+<td>100</td>
+<td>243</td>
+</tr>
+<tr>
+<td>R5 (k)</td>
+<td>NC</td>
+<td>NC</td>
+<td>NC</td>
+<td>NC</td>
+<td>NC</td>
+<td>14.3</td>
+<td>2.7</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Silent-42V4A：Vout1 (V)/Vout2 (V)</th>
+<th>0.8/0.8</th>
+<th>3.3/0.8</th>
+<th>5.0/0.8</th>
+<th>5.0/3.3</th>
+<th>3.3/3.3</th>
+<th>5.0/5.0</th>
+<th>3.3/1.8</th>
+<th>5.0/1.8</th>
+<th>1.8/0.8</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D0</td>
+<td>0</td>
+<td>0</td>
+<td>F</td>
+<td>F</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>F</td>
+<td>1</td>
+</tr>
+<tr>
+<td>D1</td>
+<td>0</td>
+<td>F</td>
+<td>0</td>
+<td>F</td>
+<td>1</td>
+<td>0</td>
+<td>F</td>
+<td>1</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ibom">ibom</h3>
+<p><a href="ibom-for-HWSD-DCDC-60V3A.html">ibom-for-HWSD-DCDC-60V3A.html</a> </p>
+<p><a href="ibom-for-HWSD-Module-36V5A.html">ibom-for-HWSD-Module-36V5A.html</a> </p>
+<p><a href="ibom-for-HWSD-Silent-42V4A.html">ibom-for-HWSD-Silent-42V4A.html</a> </p>
+<h3 id="datashet">Datashet</h3>
+<p><a href="LMR16030.pdf">LMR16030.pdf</a> </p>
+<p><a href="MPM3550E.pdf">MPM3550E.pdf</a> </p>
+<p><a href="LT8653S.pdf">LT8653S.pdf</a> </p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2023 ASR-Crash <img src='https://xmu-rm-hwsd-um.readthedocs.io/en/latest/img/ASR-WS.png' width='5%'> |&nbsp; <img src='https://xmu-rm-hwsd-um.readthedocs.io/en/latest/img/Crash-precision.png' width='10%'>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.b4d07000.min.js"></script>
+      
+    
+  </body>
+</html>
