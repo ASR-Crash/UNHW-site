@@ -1024,63 +1024,63 @@
 
 <h1 id="unhw-">UNHW通用硬件-机器人硬件解决方案</h1>
 <!-- password lock -->
+<!-- <script type="text/javascript">  
+// function password() 
+// {   
+//     var testV = 1;
+//     if(!localStorage.getItem('pswd')) 
+//     {
+//         var pass1 = prompt('请输入授权密码',''); 
+//     } 
+//     else 
+//     {
+//         testV = 11;
+//     }
+//     while (testV < 10) 
+//     {   
+//         if (!pass1)   
+//         history.go(0);   
+//         if (pass1 == "UNHW23") 
+//         {  
+//             alert('欢迎使用UNHW机器人硬件解决方案');
+//             localStorage.setItem('pswd', pass1);
+//             break;   
+//         }   
+//         testV+=1;   
+//         pass1 = prompt('非授权访问!');   
+//     }      
+// }    
+// document.write(setUserName());  
+</script>   -->
+<!-- password lock end here-->
+
+<!-- password lock -->
 <script type="text/javascript">  
-function password() 
-{   
-    var testV = 1;
-    if(!localStorage.getItem('pswd')) 
+function setUserName() 
+{
+    let pass1 = prompt('请输入授权账户',''); 
+    if(pass1 != "UNHW23") 
     {
-        var pass1 = prompt('请输入授权密码','',); 
+      alert('非授权访问!'); 
+      setUserName();
     } 
-    else 
-    {
-        testV = 11;
-    }
+    else localStorage.setItem('name', pass1);
+}
 
-    while (testV < 10) 
-    {   
-        if (!pass1)   
-        history.go(0);   
-        if (pass1 == "UNHW23") 
-        {  
-            alert('欢迎使用UNHW机器人硬件解决方案');
-            localStorage.setItem('pswd', pass1);
-            break;   
-        }   
-
-        testV+=1;   
-        var pass1 = prompt('非授权访问!');   
-    }     
-
-    // while (testV < 3) 
-    // {   
-    //     if (!pass1)   
-    //     history.go(-1);   
-    //     if (pass1 == "UNHW23") 
-    //     {  
-    //         alert('欢迎使用UNHW机器人硬件解决方案');   
-    //         break;   
-    //     }   
-
-    //     testV+=1;   
-    //     var pass1 = prompt('非授权访问!');   
-    // }   
-
-    // if (pass1!="UNHW23" & testV ==3)   
-    // history.go(-1);   
-    // return " ";   
-}   
-document.write(password());   
+if(!localStorage.getItem('name')) 
+{
+    setUserName();
+    alert('欢迎使用UNHW机器人硬件解决方案');
+}  
 </script>
 <!-- password lock end here-->
 
 <!-- cacel security chain, get online image -->
 <p><meta name="referrer" content="no-referrer"></p>
 <!-- ---
-
 <Font color="grey">***标准化的意义在于打破标准***</Font>
-
 --- -->
+
 <p><img src="https://article.biliimg.com/bfs/article/aa8ba92e685a11de9980140e1b3d0cc4c0dc519d.png"></p>
 <h3 id="overview-">Overview-概述</h3>
 <ul>
